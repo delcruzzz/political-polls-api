@@ -1,11 +1,9 @@
 import { Role } from 'src/roles/entities/role.entity';
-import { Surveyed } from 'src/surveyed/entities/surveyed.entity';
 import {
   Column,
   Entity,
   JoinTable,
   ManyToMany,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -51,6 +49,4 @@ export class User {
   @ManyToMany(() => Role, (role: Role) => role.users, { nullable: false })
   @JoinTable()
   roles: Role[];
-  @OneToMany(() => Surveyed, (surveyed) => surveyed.user, { nullable: false })
-  surveyed: Surveyed[];
 }
